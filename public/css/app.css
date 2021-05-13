@@ -10002,3 +10002,13 @@ h3 {
     border-color: #dee2e6;
   }
 }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}

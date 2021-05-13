@@ -16,17 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//When we hit this route, use PostController's function getAllPosts()
-// Route::get('/posts', [PostController::class, 'getAllPosts']);
-
 Route::get("/getPosts", function(){
     return Post::all();
 });
 
-Route::get("/getPosts/{id}", function(){
+Route::get("/getPost/{id}", function($id){
+    return Post::findOrFail($id);
 });
 
-
 Route::get('/', function () {
+    return view('home');
+});
+
+//Allows for refreshing when routes change
+Route::get('/post/{id}', function($id){
     return view('home');
 });
