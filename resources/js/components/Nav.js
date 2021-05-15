@@ -7,6 +7,10 @@ const StyledNav = styled.div`
     flex-direction: row;
     justify-content: space-between;
 
+    .navTitle {
+        padding: 1rem 0 0 2rem;
+    }
+
     .navLinks {
         display: flex;
         align-items: center;
@@ -16,7 +20,17 @@ const StyledNav = styled.div`
     }
 
     .navLink {
+        font-size: 1rem;
         padding: 1rem;
+    }
+
+    .navLink a {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .pokeBall {
+        font-size: 2rem;
     }
 `;
 
@@ -26,14 +40,17 @@ export default function Nav() {
             <h1 className="navTitle">Allef Soares</h1>
             <ul className="navLinks">
                 <li className="navLink">
-                    <a>Portfolio</a>
+                    <a target="_blank" href="https://allefts.com">
+                        Portfolio
+                    </a>
                 </li>
                 <li className="navLink">
                     <a>Resume</a>
                 </li>
-                <CgPokemon />
-                <li className="navLink">
-                    <a></a>
+                <li className="navLink pokeBall">
+                    <a target="_blank" href="https://pokepax.com">
+                        <CgPokemon />
+                    </a>
                 </li>
             </ul>
         </StyledNav>

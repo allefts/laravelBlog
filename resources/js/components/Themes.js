@@ -1,3 +1,5 @@
+// #233e8b;
+
 export const lightTheme = {
     background: "#FFF",
     text: "#000000",
@@ -7,5 +9,5 @@ export const lightTheme = {
 export const darkTheme = {
     background: "#1e2024",
     text: "#FFF",
-    postLink: "#",
+    postLink: "#FFF",
 };

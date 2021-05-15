@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 
@@ -14,8 +14,10 @@ const Post = () => {
     }, []);
     return (
         <StyledPost>
-            <h1>{post.title}</h1>
+            <h1 className="postTitle">{post.title}</h1>
+            <span className="postTag">{post.category}</span>
             <ReactMarkdown className="markdownBody" children={post.content} />
+            <Link to="/">Go Back</Link>
         </StyledPost>
     );
 };

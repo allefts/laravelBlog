@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Nav from "./Nav";
 import Post from "./Post";
 import AllPosts from "./allPosts";
+import Header from "./Header";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const StyledHome = styled.div``;
@@ -14,6 +15,7 @@ const App = () => {
             <Nav />
             <Switch>
                 <Route exact path="/">
+                    <Header />
                     <AllPosts />
                 </Route>
                 <Route exact path="/post/:id">
