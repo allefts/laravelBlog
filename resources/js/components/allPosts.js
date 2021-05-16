@@ -53,10 +53,17 @@ const StyledAllPosts = styled.div`
     .postTag {
         font-family: Fira Code;
         font-weight: bold;
+        color: black;
+    }
+
+    .categories {
+        margin: 1rem 0 0 0;
     }
 
     .postTag {
+        text-align: center;
         padding: 2px 6px;
+        margin: 0 5px;
         border: 2px solid #1d68a7;
         border-radius: 3px;
     }
@@ -65,7 +72,6 @@ const StyledAllPosts = styled.div`
 const AllPosts = () => {
     const [allPosts, setAllPosts] = useState([]);
     const [numOfPages, setNumOfPages] = useState(0);
-    // const [currentPage, setCurrentPage] = useState(1);
     useEffect(() => {
         try {
             axios.get("/getPosts").then((res) => {
@@ -85,18 +91,23 @@ const AllPosts = () => {
     };
 
     const renderallPosts = allPosts.map((post, idx) => {
+        //Map Category
+        let categoryArr = post.category.split(", ");
+        const categoryMap = categoryArr.map((category, idx) => {
+            return <span className="postTag">{category}</span>;
+        });
+
         //Parses Date
-        //REGEX HYPE
-        post.created_at = post.created_at.match(
+        post.updated_at = post.updated_at.match(
             /^[0-9]{4}-[0-1]{1}[1-9]{1}-[0-3]{1}[1-9]{1}/
         )[0];
         return (
-            <Link className="postLink" to={`/post/${post.id}`}>
-                <div className="postWrapper" key={post.id}>
+            <Link className="postLink" key={post.id} to={`/post/${post.id}`}>
+                <div className="postWrapper">
                     <h2 className="postTitle">{post.title}</h2>
-                    <p className="postDate">{post.created_at}</p>
-                    {/* <p className="postExerpt">{post.content.substring(0, 25)}</p> */}
-                    <span className="postTag">{post.category}</span>
+                    <p className="postDate">{post.updated_at}</p>
+                    {/* <span className="postTag">{post.category}</span> */}
+                    <div className="categories">{categoryMap}</div>
                 </div>
             </Link>
         );

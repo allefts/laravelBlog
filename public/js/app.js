@@ -2867,7 +2867,7 @@ var Header = function Header() {
         target: "_blank",
         href: "https://allefts.com",
         children: "Portfolio"
-      }), "."]
+      }), "!"]
     })]
   });
 };
@@ -2900,7 +2900,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledNav = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n\n    .navTitle {\n        padding: 1rem 0 0 2rem;\n        font-weight: 900;\n    }\n\n    .navLinks {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        list-style: none;\n        padding-right: 3rem;\n    }\n\n    .navLink {\n        font-size: 1rem;\n        padding: 1rem;\n    }\n\n    .navLink,\n    .navLink a {\n        color: black;\n\n        &:hover {\n            color: #1d68a7;\n        }\n    }\n\n    .navLink a {\n        cursor: pointer;\n        text-decoration: none;\n    }\n\n    .pokeBall {\n        font-size: 2rem;\n    }\n"])));
+var StyledNav = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n\n    .navTitle {\n        color: #1d68a7;\n        padding: 1rem 0 0 2rem;\n        font-weight: 900;\n    }\n\n    .navLinks {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        list-style: none;\n        padding-right: 3rem;\n    }\n\n    .navLink {\n        font-size: 1rem;\n        padding: 1rem;\n    }\n\n    .navLink,\n    .navLink a {\n        color: black;\n\n        &:hover {\n            color: #1d68a7;\n        }\n    }\n\n    .navLink a {\n        cursor: pointer;\n        text-decoration: none;\n    }\n\n    .pokeBall {\n        font-size: 2rem;\n    }\n"])));
 function Nav() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(StyledNav, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
@@ -2970,7 +2970,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledPost = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral([""])));
+var StyledPost = styled_components__WEBPACK_IMPORTED_MODULE_4__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 1000px;\n    margin: 0 auto;\n\n    .postHeader {\n        padding: 3rem;\n    }\n\n    .postTitle {\n        font-size: 3rem;\n        font-family: Ubuntu;\n        font-weight: 600;\n        text-transform: uppercase;\n    }\n\n    .postTag {\n        text-align: center;\n        padding: 2px 6px;\n        margin: 0 5px;\n        border: 2px solid #1d68a7;\n        border-radius: 3px;\n    }\n\n    .postBody {\n        padding: 1rem;\n    }\n\n    .goBackLink {\n        color: #1d68a7;\n        font-size: 1rem;\n        text-decoration: none;\n    }\n"])));
 
 var Post = function Post() {
   var postID = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)();
@@ -2985,19 +2985,40 @@ var Post = function Post() {
       return setPost(res.data);
     });
   }, []);
+
+  var splitCategory = function splitCategory(postCategory) {
+    var categoryArr = postCategory.split(", ");
+    var categoryMap = categoryArr.map(function (category, idx) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "postTag",
+        children: category
+      }, category);
+    });
+    return categoryMap;
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(StyledPost, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-      className: "postTitle",
-      children: post.title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      className: "postTag",
-      children: post.category
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((react_markdown__WEBPACK_IMPORTED_MODULE_2___default()), {
-      className: "markdownBody",
-      children: post.content
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-      to: "/",
-      children: "Go Back"
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "postHeader",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+        className: "postTitle",
+        children: post.title
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "categories",
+        children: Object.keys(post).length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+          children: "Loading Post..."
+        }) : splitCategory(post.category)
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "postBody",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)((react_markdown__WEBPACK_IMPORTED_MODULE_2___default()), {
+        className: "markdownBody",
+        children: post.content
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+        className: "goBackLink",
+        to: "/",
+        children: "Go Back"
+      })]
     })]
   });
 };
@@ -3045,7 +3066,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledAllPosts = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 1000px;\n    margin: 0 auto;\n\n    .allPostsTitle {\n        font-family: Ubuntu;\n        font-weight: 600;\n        margin: 2rem 0;\n    }\n\n    .postLink {\n        text-decoration: none;\n    }\n\n    .postWrapper {\n        padding: 1.5rem;\n        margin: 1rem;\n        border: 2px solid #1d68a7;\n        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n        transition: box-shadow 0.3s ease-in-out;\n        cursor: pointer;\n\n        &:hover {\n            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n        }\n    }\n\n    h2 {\n        margin-bottom: 0.5rem;\n    }\n\n    .postTitle {\n        color: #1d68a7;\n        font-family: Source Sans Pro, Nunito;\n        text-decoration: none;\n        font-size: 1.75rem;\n        font-weight: 900;\n\n        &:hover {\n            // border-bottom: 2px solid #1d68a7;\n        }\n    }\n\n    .postDate {\n        float: right;\n    }\n    .postDate,\n    .postTag {\n        font-family: Fira Code;\n        font-weight: bold;\n    }\n\n    .postTag {\n        padding: 2px 6px;\n        border: 2px solid #1d68a7;\n        border-radius: 3px;\n    }\n"])));
+var StyledAllPosts = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 1000px;\n    margin: 0 auto;\n\n    .allPostsTitle {\n        font-family: Ubuntu;\n        font-weight: 600;\n        margin: 2rem 0;\n    }\n\n    .postLink {\n        text-decoration: none;\n    }\n\n    .postWrapper {\n        padding: 1.5rem;\n        margin: 1rem;\n        border: 2px solid #1d68a7;\n        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n        transition: box-shadow 0.3s ease-in-out;\n        cursor: pointer;\n\n        &:hover {\n            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n        }\n    }\n\n    h2 {\n        margin-bottom: 0.5rem;\n    }\n\n    .postTitle {\n        color: #1d68a7;\n        font-family: Source Sans Pro, Nunito;\n        text-decoration: none;\n        font-size: 1.75rem;\n        font-weight: 900;\n\n        &:hover {\n            // border-bottom: 2px solid #1d68a7;\n        }\n    }\n\n    .postDate {\n        float: right;\n    }\n    .postDate,\n    .postTag {\n        font-family: Fira Code;\n        font-weight: bold;\n        color: black;\n    }\n\n    .categories {\n        margin: 1rem 0 0 0;\n    }\n\n    .postTag {\n        text-align: center;\n        padding: 2px 6px;\n        margin: 0 5px;\n        border: 2px solid #1d68a7;\n        border-radius: 3px;\n    }\n"])));
 
 var AllPosts = function AllPosts() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -3056,8 +3077,7 @@ var AllPosts = function AllPosts() {
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
       _useState4 = _slicedToArray(_useState3, 2),
       numOfPages = _useState4[0],
-      setNumOfPages = _useState4[1]; // const [currentPage, setCurrentPage] = useState(1);
-
+      setNumOfPages = _useState4[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     try {
@@ -3077,9 +3097,16 @@ var AllPosts = function AllPosts() {
   };
 
   var renderallPosts = allPosts.map(function (post, idx) {
-    //Parses Date
-    //REGEX HYPE
-    post.created_at = post.created_at.match(/^[0-9]{4}-[0-1]{1}[1-9]{1}-[0-3]{1}[1-9]{1}/)[0];
+    //Map Category
+    var categoryArr = post.category.split(", ");
+    var categoryMap = categoryArr.map(function (category, idx) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        className: "postTag",
+        children: category
+      });
+    }); //Parses Date
+
+    post.updated_at = post.updated_at.match(/^[0-9]{4}-[0-1]{1}[1-9]{1}-[0-3]{1}[1-9]{1}/)[0];
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
       className: "postLink",
       to: "/post/".concat(post.id),
@@ -3090,13 +3117,13 @@ var AllPosts = function AllPosts() {
           children: post.title
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
           className: "postDate",
-          children: post.created_at
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-          className: "postTag",
-          children: post.category
+          children: post.updated_at
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "categories",
+          children: categoryMap
         })]
-      }, post.id)
-    });
+      })
+    }, post.id);
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(StyledAllPosts, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {

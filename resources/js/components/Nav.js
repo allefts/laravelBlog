@@ -8,6 +8,7 @@ const StyledNav = styled.div`
     justify-content: space-between;
 
     .navTitle {
+        color: #1d68a7;
         padding: 1rem 0 0 2rem;
         font-weight: 900;
     }

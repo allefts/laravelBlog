@@ -52,7 +52,7 @@ const Header = () => {
                 <a target="_blank" href="https://allefts.com">
                     Portfolio
                 </a>
-                .
+                !
             </h3>
         </StyledHeader>
     );
