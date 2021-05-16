@@ -3045,7 +3045,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledAllPosts = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 750px;\n    margin: 0 auto;\n\n    .allPostsTitle {\n        font-family: Ubuntu;\n        font-weight: 600;\n        margin: 2rem 0;\n    }\n\n    .postWrapper {\n        padding: 0 0 2rem 0;\n        margin: 1rem;\n    }\n\n    .postTitle {\n        color: #1d68a7;\n        font-family: Source Sans Pro, Nunito;\n        text-decoration: none;\n        font-size: 1.5rem;\n        font-weight: 900;\n\n        &:hover {\n            // border-bottom: 2px solid #1d68a7;\n        }\n    }\n\n    .postDate {\n        float: right;\n    }\n    .postDate,\n    .postTag {\n        font-family: Fira Code;\n    }\n\n    .postTag {\n        padding: 2px;\n        margin: 5px;\n        border: 2px solid #1d68a7;\n        border-radius: 3px;\n        margin-left: 0.5rem;\n    }\n"])));
+var StyledAllPosts = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 1000px;\n    margin: 0 auto;\n\n    .allPostsTitle {\n        font-family: Ubuntu;\n        font-weight: 600;\n        margin: 2rem 0;\n    }\n\n    .postLink {\n        text-decoration: none;\n    }\n\n    .postWrapper {\n        padding: 1.5rem;\n        margin: 1rem;\n        border: 2px solid #1d68a7;\n        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n        transition: box-shadow 0.3s ease-in-out;\n        cursor: pointer;\n\n        &:hover {\n            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);\n        }\n    }\n\n    h2 {\n        margin-bottom: 0.5rem;\n    }\n\n    .postTitle {\n        color: #1d68a7;\n        font-family: Source Sans Pro, Nunito;\n        text-decoration: none;\n        font-size: 1.75rem;\n        font-weight: 900;\n\n        &:hover {\n            // border-bottom: 2px solid #1d68a7;\n        }\n    }\n\n    .postDate {\n        float: right;\n    }\n    .postDate,\n    .postTag {\n        font-family: Fira Code;\n        font-weight: bold;\n    }\n\n    .postTag {\n        padding: 2px 6px;\n        border: 2px solid #1d68a7;\n        border-radius: 3px;\n    }\n"])));
 
 var AllPosts = function AllPosts() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -3080,22 +3080,23 @@ var AllPosts = function AllPosts() {
     //Parses Date
     //REGEX HYPE
     post.created_at = post.created_at.match(/^[0-9]{4}-[0-1]{1}[1-9]{1}-[0-3]{1}[1-9]{1}/)[0];
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "postWrapper",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+      className: "postLink",
+      to: "/post/".concat(post.id),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "postWrapper",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           className: "postTitle",
-          to: "/post/".concat(post.id),
           children: post.title
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        className: "postDate",
-        children: post.created_at
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-        className: "postTag",
-        children: post.category
-      })]
-    }, post.id);
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          className: "postDate",
+          children: post.created_at
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "postTag",
+          children: post.category
+        })]
+      }, post.id)
+    });
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(StyledAllPosts, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {

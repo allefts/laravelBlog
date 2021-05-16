@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledAllPosts = styled.div`
-    max-width: 750px;
+    max-width: 1000px;
     margin: 0 auto;
 
     .allPostsTitle {
@@ -13,16 +13,32 @@ const StyledAllPosts = styled.div`
         margin: 2rem 0;
     }
 
+    .postLink {
+        text-decoration: none;
+    }
+
     .postWrapper {
-        padding: 0 0 2rem 0;
+        padding: 1.5rem;
         margin: 1rem;
+        border: 2px solid #1d68a7;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    h2 {
+        margin-bottom: 0.5rem;
     }
 
     .postTitle {
         color: #1d68a7;
         font-family: Source Sans Pro, Nunito;
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 1.75rem;
         font-weight: 900;
 
         &:hover {
@@ -36,14 +52,13 @@ const StyledAllPosts = styled.div`
     .postDate,
     .postTag {
         font-family: Fira Code;
+        font-weight: bold;
     }
 
     .postTag {
-        padding: 2px;
-        margin: 5px;
+        padding: 2px 6px;
         border: 2px solid #1d68a7;
         border-radius: 3px;
-        margin-left: 0.5rem;
     }
 `;
 
@@ -76,16 +91,14 @@ const AllPosts = () => {
             /^[0-9]{4}-[0-1]{1}[1-9]{1}-[0-3]{1}[1-9]{1}/
         )[0];
         return (
-            <div className="postWrapper" key={post.id}>
-                <h2>
-                    <Link className="postTitle" to={`/post/${post.id}`}>
-                        {post.title}
-                    </Link>
-                </h2>
-                <p className="postDate">{post.created_at}</p>
-                {/* <p className="postExerpt">{post.content.substring(0, 25)}</p> */}
-                <span className="postTag">{post.category}</span>
-            </div>
+            <Link className="postLink" to={`/post/${post.id}`}>
+                <div className="postWrapper" key={post.id}>
+                    <h2 className="postTitle">{post.title}</h2>
+                    <p className="postDate">{post.created_at}</p>
+                    {/* <p className="postExerpt">{post.content.substring(0, 25)}</p> */}
+                    <span className="postTag">{post.category}</span>
+                </div>
+            </Link>
         );
     });
 
