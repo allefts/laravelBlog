@@ -2833,11 +2833,42 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    // padding: 10rem;\n    // display: grid;\n    // place-items: center;\n"])));
+
+var StyledHeader = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    padding: rem;\n    display: grid;\n    place-items: center;\n\n    h1,\n    h3 {\n        font-family: Ubuntu;\n    }\n\n    h1 {\n        font-weight: 600;\n    }\n\n    h3 {\n        font-weight: 400;\n    }\n\n    .emojisWrapper {\n        margin: 1rem;\n        display: flex;\n        justify-content: space-around;\n    }\n\n    .emojiHeader {\n        font-size: 3rem;\n    }\n"])));
 
 var Header = function Header() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(StyledHeader, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {})
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(StyledHeader, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: "Welcome to my Blog."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h3", {
+      children: ["I plan to post anything I find interesting.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "emojisWrapper",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "emojiHeader",
+          children: "\uD83D\uDC68\u200D\uD83D\uDCBB"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "emojiHeader",
+          children: "\uD83C\uDFA3"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "emojiHeader",
+          children: "\u26BD"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "emojiHeader",
+          children: "\uD83D\uDD79\uFE0F"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "emojiHeader",
+          children: "\uD83D\uDC15"
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: "A Little About Me:"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h3", {
+      children: ["I'm a student enjoying some Web Dev.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("br", {}), "If you want to take a more formal look, check out my", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        target: "_blank",
+        href: "https://allefts.com",
+        children: "Portfolio"
+      }), "."]
+    })]
   });
 };
 
@@ -2869,7 +2900,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledNav = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n\n    .navTitle {\n        padding: 1rem 0 0 2rem;\n    }\n\n    .navLinks {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        list-style: none;\n        padding-right: 3rem;\n    }\n\n    .navLink {\n        font-size: 1rem;\n        padding: 1rem;\n    }\n\n    .navLink a {\n        cursor: pointer;\n        text-decoration: none;\n    }\n\n    .pokeBall {\n        font-size: 2rem;\n    }\n"])));
+var StyledNav = styled_components__WEBPACK_IMPORTED_MODULE_2__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n\n    .navTitle {\n        padding: 1rem 0 0 2rem;\n        font-weight: 900;\n    }\n\n    .navLinks {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        list-style: none;\n        padding-right: 3rem;\n    }\n\n    .navLink {\n        font-size: 1rem;\n        padding: 1rem;\n    }\n\n    .navLink,\n    .navLink a {\n        color: black;\n\n        &:hover {\n            color: #1d68a7;\n        }\n    }\n\n    .navLink a {\n        cursor: pointer;\n        text-decoration: none;\n    }\n\n    .pokeBall {\n        font-size: 2rem;\n    }\n"])));
 function Nav() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(StyledNav, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
@@ -2878,13 +2909,6 @@ function Nav() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
       className: "navLinks",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-        className: "navLink",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-          target: "_blank",
-          href: "https://allefts.com",
-          children: "Portfolio"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
         className: "navLink",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
           children: "Resume"
@@ -3021,7 +3045,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StyledAllPosts = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 750px;\n    margin: 0 auto;\n\n    .postWrapper {\n        padding: 0 0 3rem 0;\n    }\n\n    .postTitle {\n        color: #1d68a7;\n        text-decoration: none;\n        font-family: Source Sans Pro, Nunito;\n        font-size: 3rem;\n        font-weight: 900;\n        text-transform: capitalize;\n\n        &:hover {\n        }\n    }\n\n    .postDate {\n        float: right;\n    }\n\n    .postTag {\n        font-family: Fira Code;\n        margin-left: 0.5rem;\n        padding: 2px;\n        margin: 5px;\n        border: 2px solid #1d68a7;\n        border-radius: 3px;\n    }\n"])));
+var StyledAllPosts = styled_components__WEBPACK_IMPORTED_MODULE_3__.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 750px;\n    margin: 0 auto;\n\n    .allPostsTitle {\n        font-family: Ubuntu;\n        font-weight: 600;\n        margin: 2rem 0;\n    }\n\n    .postWrapper {\n        padding: 0 0 2rem 0;\n        margin: 1rem;\n    }\n\n    .postTitle {\n        color: #1d68a7;\n        font-family: Source Sans Pro, Nunito;\n        text-decoration: none;\n        font-size: 1.5rem;\n        font-weight: 900;\n\n        &:hover {\n            // border-bottom: 2px solid #1d68a7;\n        }\n    }\n\n    .postDate {\n        float: right;\n    }\n    .postDate,\n    .postTag {\n        font-family: Fira Code;\n    }\n\n    .postTag {\n        padding: 2px;\n        margin: 5px;\n        border: 2px solid #1d68a7;\n        border-radius: 3px;\n        margin-left: 0.5rem;\n    }\n"])));
 
 var AllPosts = function AllPosts() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -3073,10 +3097,13 @@ var AllPosts = function AllPosts() {
       })]
     }, post.id);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(StyledAllPosts, {
-    children: !allPosts ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(StyledAllPosts, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      className: "allPostsTitle",
+      children: "Here They Are: "
+    }), !allPosts ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
       children: "Getting Posts..."
-    }) : renderallPosts
+    }) : renderallPosts]
   });
 };
 

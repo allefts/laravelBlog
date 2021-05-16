@@ -7,33 +7,43 @@ const StyledAllPosts = styled.div`
     max-width: 750px;
     margin: 0 auto;
 
+    .allPostsTitle {
+        font-family: Ubuntu;
+        font-weight: 600;
+        margin: 2rem 0;
+    }
+
     .postWrapper {
-        padding: 0 0 3rem 0;
+        padding: 0 0 2rem 0;
+        margin: 1rem;
     }
 
     .postTitle {
         color: #1d68a7;
-        text-decoration: none;
         font-family: Source Sans Pro, Nunito;
-        font-size: 3rem;
+        text-decoration: none;
+        font-size: 1.5rem;
         font-weight: 900;
-        text-transform: capitalize;
 
         &:hover {
+            // border-bottom: 2px solid #1d68a7;
         }
     }
 
     .postDate {
         float: right;
     }
-
+    .postDate,
     .postTag {
         font-family: Fira Code;
-        margin-left: 0.5rem;
+    }
+
+    .postTag {
         padding: 2px;
         margin: 5px;
         border: 2px solid #1d68a7;
         border-radius: 3px;
+        margin-left: 0.5rem;
     }
 `;
 
@@ -81,6 +91,7 @@ const AllPosts = () => {
 
     return (
         <StyledAllPosts>
+            <h1 className="allPostsTitle">Here They Are: </h1>
             {!allPosts ? <h1>Getting Posts...</h1> : renderallPosts}
             {/* <div className="pages">
                 {!numOfPages ? <h1>Getting Pages...</h1> : createPages()}

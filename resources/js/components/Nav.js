@@ -9,6 +9,7 @@ const StyledNav = styled.div`
 
     .navTitle {
         padding: 1rem 0 0 2rem;
+        font-weight: 900;
     }
 
     .navLinks {
@@ -22,6 +23,15 @@ const StyledNav = styled.div`
     .navLink {
         font-size: 1rem;
         padding: 1rem;
+    }
+
+    .navLink,
+    .navLink a {
+        color: black;
+
+        &:hover {
+            color: #1d68a7;
+        }
     }
 
     .navLink a {
@@ -39,11 +49,6 @@ export default function Nav() {
         <StyledNav>
             <h1 className="navTitle">Allef Soares</h1>
             <ul className="navLinks">
-                <li className="navLink">
-                    <a target="_blank" href="https://allefts.com">
-                        Portfolio
-                    </a>
-                </li>
                 <li className="navLink">
                     <a>Resume</a>
                 </li>
