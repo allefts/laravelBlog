@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import styled from "styled-components";
 import ReactMarkdown from "react-markdown";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { twilight } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const StyledPost = styled.div`
     max-width: 1000px;
@@ -20,6 +22,7 @@ const StyledPost = styled.div`
     }
 
     .postTag {
+        font-family: Fira Code;
         text-align: center;
         padding: 2px 6px;
         margin: 0 5px;
@@ -36,6 +39,18 @@ const StyledPost = styled.div`
         font-size: 1rem;
         text-decoration: none;
     }
+
+    .markdownBody {
+        // pre {
+        //     padding: 1rem;
+        //     background-color: rgba(29, 104, 167, 0.5);
+        //     border-radius: 10px;
+
+        //     code {
+        //         font-family: Fira Code;
+        //     }
+        // }
+    }
 `;
 
 const Post = () => {
@@ -44,6 +59,23 @@ const Post = () => {
     useEffect(() => {
         axios.get(`/getPost/${postID.id}`).then((res) => setPost(res.data));
     }, []);
+
+    const codeComponent = {
+        code({ className, children, ...props }) {
+            const match = /language-(\w+)/.exec(className || "");
+            return match ? (
+                <SyntaxHighlighter
+                    style={twilight}
+                    language={match[1]}
+                    PreTag="div"
+                    children={String(children).replace(/\n$/, "")}
+                    {...props}
+                />
+            ) : (
+                <code className={className} {...props} />
+            );
+        },
+    };
 
     const splitCategory = (postCategory) => {
         let categoryArr = postCategory.split(", ");
@@ -61,10 +93,9 @@ const Post = () => {
         <StyledPost>
             <div className="postHeader">
                 <h1 className="postTitle">{post.title}</h1>
-                {/* <span className="postTag">{post.category}</span> */}
                 <div className="categories">
                     {Object.keys(post).length === 0 ? (
-                        <h2>Loading Post...</h2>
+                        <h2>Loading Tags...</h2>
                     ) : (
                         splitCategory(post.category)
                     )}
@@ -74,6 +105,7 @@ const Post = () => {
                 <ReactMarkdown
                     className="markdownBody"
                     children={post.content}
+                    components={codeComponent}
                 />
                 <Link className="goBackLink" to="/">
                     Go Back
