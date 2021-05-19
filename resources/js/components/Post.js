@@ -41,15 +41,6 @@ const StyledPost = styled.div`
     }
 
     .markdownBody {
-        // pre {
-        //     padding: 1rem;
-        //     background-color: rgba(29, 104, 167, 0.5);
-        //     border-radius: 10px;
-
-        //     code {
-        //         font-family: Fira Code;
-        //     }
-        // }
     }
 `;
 
@@ -95,7 +86,7 @@ const Post = () => {
                 <h1 className="postTitle">{post.title}</h1>
                 <div className="categories">
                     {Object.keys(post).length === 0 ? (
-                        <h2>Loading Tags...</h2>
+                        <p></p>
                     ) : (
                         splitCategory(post.category)
                     )}
